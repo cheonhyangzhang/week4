@@ -13,4 +13,16 @@ MoviesApp::Application.routes.draw do
 
   delete '/movies/:id', controller: 'movies', action: 'destroy'
 
+  get '/theaters', controller: 'theaters', action: 'index', as: 'theaters'
+  get '/theaters/new', controller: 'theaters', action: 'new', as: 'new_theater'
+
+  get '/theaters/:id', controller: 'theaters', action: 'show', as: 'theater'
+  post '/theaters', controller: 'theaters', action: 'create'
+
+  get '/theaters/:id/edit', controller: 'theaters', action: 'edit', as: 'edit_theater'
+  put '/theaters/:id', controller: 'theaters', action: 'update'
+
+   delete '/theaters/:id', controller: 'theaters', action: 'destroy'
+
+
 end

@@ -1,3 +1,43 @@
 class TheatersController < ApplicationController
 
+	def index
+		@theaters = Theater.all
+	end
+	def new
+
+    end
+
+    def create
+    	t = Theater.new
+    	t.name = params[:name]
+    	t.address = params[:address]
+    	t.phoneNumber = params[:phoneNumber]
+    	t.save
+
+    	redirect_to theaters_url
+  	end
+
+
+  	def show
+    	@theater = Theater.find_by_id(params[:id])
+  	end
+
+  	def edit
+    	@theater = Theater.find_by_id(params[:id])
+  	end
+  	def update
+    	@theater = Theater.find_by_id(params[:id])
+    	@theater.name = params[:name]
+    	@theater.address = params[:address]
+    	@theater.phoneNumber = params[:phoneNumber]
+    	@theater.save
+    	redirect_to theater_url
+  	end
+
+  	def destroy
+    	t = Theater.find_by_id(params[:id])
+    	t.destroy
+    	redirect_to theaters_url
+  	end
+
 end
